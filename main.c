@@ -7,7 +7,7 @@ int main(){
     Lista *lista;
     int op, saida;
     char nome_hotel[50];
-    printf("\n====================\n");
+    printf(" ====================\n");
     printf("\n        Menu:       \n");
     printf("\n====================\n");
     printf("1- Adicionar hotel\n");

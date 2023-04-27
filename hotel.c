@@ -46,8 +46,9 @@ Lista *insere_hotel(Lista *lista, Hotel *conteudo){
 Lista* excluir_hotel(Lista *lista, char nome_hotel){
 	Lista *anterior= NULL;
 	Lista *percorre = lista;
-	while(strcmp(nome_hotel, percorre->info->nome) != 0){
+	while((strcmp(nome_hotel, percorre->info->nome)) != 0){
 		if(percorre == NULL){
+			printf("Nao foi encontrado nenhum hotel");
 			return (lista);
 		}
 		anterior = percorre;
@@ -70,7 +71,7 @@ void listar_hotel(Lista *lista){
 	for(percorre=lista; percorre!=NULL; percorre=percorre->prox){
 		printf("Nome = %s \n", percorre->info->nome);
     	printf("Localidade = %s \n", percorre->info->local);
-		printf("Avaliacao = %d \n", percorre->info->avalia);
+		printf("Avaliacao = %s \n", percorre->info->avalia);
 	}
 }
 
@@ -87,7 +88,7 @@ void listartxt(Lista *lista){
 	    printf("Salvo com sucesso!\n");
 
         for(percorre=lista; percorre !=NULL; percorre=percorre->prox){
-		    fprintf(arquivo_hotel,"Nome: %s\nLocalidade:%s\nAvaliacao: %d\n", percorre->info->nome, percorre->info->local, percorre->info->avalia);
+		    fprintf(arquivo_hotel,"Nome: %s\nLocalidade:%s\nAvaliacao: %s\n", percorre->info->nome, percorre->info->local, percorre->info->avalia);
             fclose(arquivo_hotel);
 	    }
 	}
