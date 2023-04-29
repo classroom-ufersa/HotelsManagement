@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "hotel.c"
+#include "quarto.c"
 
 int main(){
     Hotel *h;
     Lista *lista;
     int op, saida;
-    char nome_hotel[50];
     printf(" ====================\n");
     printf("\n        Menu:       \n");
     printf("\n====================\n");
@@ -35,10 +35,8 @@ int main(){
                 printf("\n===============================\n");
                 printf("       Excluir Hotel         \n");
                 printf("===============================\n");
-                printf("Digite o nome do hotel: ");
-                scanf(" %[^\n]", nome_hotel);
-                lista = excluir_hotel(lista, nome_hotel);
-                printf("Excluido com Sucesso!\n");
+                lista = excluir_hotel(lista);
+                printf("Hotel excluido com sucesso!");
                 printf("\n");
                 break;
                 
@@ -56,15 +54,18 @@ int main(){
                 printf("\n===============================\n");
                 printf("        Buscar Hotel        \n");
                 printf("===============================\n");
-                printf("Informe o nome do hotel: ");
-                scanf(" %[^\n]", nome_hotel);
-                buscar_hotel(nome_hotel, lista);
+                buscar_hotel(lista);
                 printf("\n");
                 break;
 
+            case 5:
+                printf("\n===============================\n");
+                printf("        Editar hotel      \n");
+                printf("===============================\n");
+
             case 8:
                 saida = 1;
-                printf("Obrigado por usar este programa\n");
+                printf("Obrigado por usar este programa!\n");
                 break;
         
             default:

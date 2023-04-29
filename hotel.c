@@ -2,17 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include "hotel.h"
+#include "quarto.h"
 
 struct hotel{
 	char nome[50];
 	char local[100];
 	char avalia[5];
-};
-
-struct quarto{
-	int tipo;
-	float preco;
-	int disponivel;
+	Quarto *room;
 };
 
 struct lista{
@@ -25,30 +21,37 @@ Hotel *add_hotel(void){
 	Hotel *novo_hotel = (Hotel*) malloc(sizeof(Hotel));
 
 	printf("Informe o nome: \n");
-	scanf(" %[^\n]s", novo_hotel->nome);
+	scanf(" %s", novo_hotel->nome);
 	printf("Informe a localidade: \n");
-	scanf(" %[^\n]s", novo_hotel->local);
+	scanf(" %s", novo_hotel->local);
 	printf("Informe a avaliacao do hotel: \n");
-	scanf(" %[^\n]s", novo_hotel->avalia);
-	printf("Hotel Adicionado!");
+	scanf(" %s", novo_hotel->avalia);
+	
+	if(novo_hotel != NULL){
+		printf("Hotel Adicionado!\n");
+		printf("Nome: %s\nLocalidade: %s\nAvaliacao: %s\n", novo_hotel->nome, novo_hotel->local, novo_hotel->avalia);
+	}
 	return (novo_hotel);
 }	
 
-Lista *insere_hotel(Lista *lista, Hotel *conteudo){
+Lista *insere_hotel(Lista *lista, Hotel *cont){
     
 	Lista *novo_hotel = (Lista*) malloc (sizeof(Lista));
-  	novo_hotel->info = conteudo;
+  	novo_hotel->info = cont;
   	novo_hotel->prox = lista;
 
   	return (novo_hotel);
 }
 
-Lista* excluir_hotel(Lista *lista, char nome_hotel){
+Lista *excluir_hotel(Lista *lista){
+	char nome_hotel[50];
 	Lista *anterior= NULL;
 	Lista *percorre = lista;
+	printf("Digite o nome do hotel: ");
+    scanf(" %[^\n]", nome_hotel);
 	while((strcmp(nome_hotel, percorre->info->nome)) != 0){
 		if(percorre == NULL){
-			printf("Nao foi encontrado nenhum hotel");
+			printf("Nao foi encontrado nenhum hotel!");
 			return (lista);
 		}
 		anterior = percorre;
@@ -95,15 +98,16 @@ void listartxt(Lista *lista){
             		
 }
 
-void buscar_hotel(char nome, Lista* lista){
+void buscar_hotel(Lista* lista){
+	char nome_hotel[50];
 	Lista * percorre;
-
+	printf("Digite o nome do hotel: ");
+    scanf(" %[^\n]", nome_hotel);
 	for(percorre = lista; percorre != NULL; percorre = percorre->prox){
-		if(strcmp(percorre->info->nome, nome) == 0){
+		if(strcmp(percorre->info->nome, nome_hotel) == 0){
 			printf("Nome: %s\n", percorre->info->nome);
 			printf("Localidade: %s\n", percorre->info->local);
 			printf("Avaliacao: %s\n", percorre->info->avalia);
 		}
 	}
-
 }
