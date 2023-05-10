@@ -1,17 +1,17 @@
 typedef struct hotel Hotel;
 
-typedef struct lista Lista;
+typedef struct lista Listah;
 
-Hotel *add_hotel();
+Hotel *realizarh(void);
 
-Lista *insere_hotel(Lista *lista, Hotel *cont);
+Listah* lst_criah(void);
 
-Lista *excluir_hotel(Lista *lista);
+Listah * excluirh(Listah *list, char nome);
 
-void listar_hotel(Lista *lista);
+void listarh(Listah *list);
 
-void listartxt(Lista *lista);
+Listah *buscarh(Listah *list);
 
-void buscar_hotel(Lista* lista);
+void editarh(Listah *list);
 
-
+void disponibilidadeh(Listah *list);
