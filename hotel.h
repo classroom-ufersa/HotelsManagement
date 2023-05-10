@@ -6,12 +6,12 @@ Hotel *realizarh(void);
 
 Listah* lst_criah(void);
 
-Listah * excluirh(Listah *list, char nome);
+Listah * excluirh(Listah *list);
 
 void listarh(Listah *list);
 
-Listah *buscarh(Listah *list);
+void buscarh(Listah *list);
 
-void editarh(Listah *list);
+Listah *editarh(Listah *list);
 
 void disponibilidadeh(Listah *list);

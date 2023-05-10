@@ -8,12 +8,14 @@ Listaq* lst_criaq(void);
 
 int vaziaq(Listaq *list);
 
-Listaq* excluirq(Listaq* list, int num_q);
+Listaq *excluirq(Listaq* list);
 
-Listaq * buscarq( Listaq * list);
+Listaq *buscarq( Listaq * list);
 
-void editaq(Listaq *list);
+Listaq *editaq(Listaq *list);
 
 void quantitativoq(Listaq * list);
 
 void listarq(Listaq *list);
+
+void quantitativa_quartos(Listah *list);

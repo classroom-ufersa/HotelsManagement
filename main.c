@@ -82,8 +82,6 @@ int main (void){
     unsigned int saida = 0;
     Listah * hoteis = lst_criah();
     Listaq * quartos = lst_criaq();
-    int numq;
-    char nomeh;
     do {
         ApresentaMenu(N_OPCOES, OPCAO1,
                     TITULO_OPCAO1, TITULO_OPCAO2,
@@ -107,23 +105,13 @@ int main (void){
                 break;
                 
             case 2:
-            Beep(1000,500);
+                Beep(1000,500);
                         
                 printf("Excluir Hotel\n");
                 printf("\n");
-                    
-  
-                printf("Digite o nome do hotel que Deseja excluir\n");
-                scanf("%s", &nomeh);
+                hoteis = excluirh(hoteis);
                 printf("\n");
-                hoteis = excluirh(hoteis, nomeh);
-                printf("\n");
-
-                printf("Digite o numero do  que deseja excluir\n");
-                scanf(" %d", numq);
-                printf("\n");
-                quartos= excluirq(quartos,  numq);
-
+                quartos= excluirq(quartos);
                 printf("\n");
                 break;
 
@@ -144,7 +132,7 @@ int main (void){
                 printf("\n");
                         
 
-                hoteis = buscarh(hoteis);
+                buscarh(hoteis);
                 printf("\n");
                 quartos = buscarq(quartos);
 
@@ -157,9 +145,9 @@ int main (void){
 
                 printf("Editar cadastro\n ");        
                 printf("\n");
-                editarh(hoteis);
+                hoteis = editarh(hoteis);
                 printf("\n");
-                editaq(quartos);
+                quartos = editaq(quartos);
                 printf("\n");
                 break;
 
@@ -170,7 +158,7 @@ int main (void){
                 printf("Consultar quartos   \n ");
                 printf("\n");
                 
-                disponibilidadeh(hoteis);
+                quantitativa_quartos(hoteis);
                 printf("\n");
                 break;
 
@@ -178,7 +166,7 @@ int main (void){
                 Beep(1000,500);
                 printf("       Quantidade de Quartos     \n");
                 printf("\n");
-                quantitativoq(quartos);
+                quantitativa_quartos(hoteis);
                 printf("\n");
                 break;
 
