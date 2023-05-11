@@ -7,14 +7,14 @@
 #include "quarto.c"
 
    
-#define TITULO_OPCAO1 " Realizar reservas "
-#define TITULO_OPCAO2 " Excluir reservas "
-#define TITULO_OPCAO3 " Listar reservas "
-#define TITULO_OPCAO4 " Buscar reservas "
-#define TITULO_OPCAO5 " Editar reservas "
-#define TITULO_OPCAO6 " Consultar vagas disponiveis para uma dada origem - Destino "
-#define TITULO_OPCAO7 " Consultar quantitativo de passageiros "
-#define TITULO_OPCAO8 " Saida do programa "
+#define TITULO_OPCAO1 " Adicionar Hotel "
+#define TITULO_OPCAO2 " Remover Hotel "
+#define TITULO_OPCAO3 " Listar Hoteis Cadastrados "
+#define TITULO_OPCAO4 " Buscar Hoteis "
+#define TITULO_OPCAO5 " Editar Cadastro "
+#define TITULO_OPCAO6 " Consultar quartos disponiveis em um dada Hotel "
+#define TITULO_OPCAO7 " Consultar quantitativo de quartos por Hoteis "
+#define TITULO_OPCAO8 " Sair "
 
 
 #define N_OPCOES 8
@@ -93,11 +93,8 @@ int main (void){
 
             case 1:
                 Beep(1000,500);
-                
-                
                 printf("Adicionar Hotel\n ");
                 printf("\n");
-                    
                 hoteis = insereh(hoteis);
                 printf("\n");
                 hoteis->info->room = insereq();
@@ -106,7 +103,6 @@ int main (void){
                 
             case 2:
                 Beep(1000,500);
-                        
                 printf("Excluir Hotel\n");
                 printf("\n");
                 hoteis = excluirh(hoteis);
@@ -116,8 +112,7 @@ int main (void){
                 break;
 
             case 3:
-                Beep(1000,500);
-                    
+                Beep(1000,500);          
                 printf("Listar Hotel\n");
                 printf("\n");
                 listarh(hoteis ); 
@@ -126,23 +121,17 @@ int main (void){
                 break;
                     
             case 4:
-                Beep(1000,500);
-                    
+                Beep(1000,500);         
                 printf("Buscar Hotel\n ");
                 printf("\n");
-                        
-
                 buscarh(hoteis);
                 printf("\n");
                 quartos = buscarq(quartos);
-
                 printf("\n");
                 break;
 
             case 5:
-
                 Beep(1000,500);
-
                 printf("Editar cadastro\n ");        
                 printf("\n");
                 hoteis = editarh(hoteis);
@@ -152,29 +141,24 @@ int main (void){
                 break;
 
              case 6:
-
                 Beep(1000,500);
-                                                                        
                 printf("Consultar quartos   \n ");
-                printf("\n");
-                
+                printf("\n"); 
                 quantitativa_quartos(hoteis);
                 printf("\n");
                 break;
 
             case 7:
                 Beep(1000,500);
-                printf("       Quantidade de Quartos     \n");
+                printf("Quantidade de Quartos\n");
                 printf("\n");
                 quantitativa_quartos(hoteis);
                 printf("\n");
                 break;
 
             case 8:
-                        
-                printf("                Saindo                 \n ");
+                printf("Saindo\n ");
                 printf("\n");
-                
                 saida = 1;
                 printf("\n");
                 break;
