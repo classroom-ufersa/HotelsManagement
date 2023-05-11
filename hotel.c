@@ -5,10 +5,10 @@
 #include "quarto.h"
 
 struct hotel { 
-	char nome[50]; /*  */
-	Quarto *room; /*  */
-	char local[100]; /*  */
-	char avali[5]; /*  */
+	char nome[50];
+	Quarto *room;
+	char local[100];
+	char avali[5];
 };
 
 struct lista{
@@ -28,13 +28,17 @@ Hotel *realizarh(void){
 		scanf(" %s", novo_hotel[i].local);
 		printf("Informe a avaliacao do hotel: \n");
 		scanf(" %s", novo_hotel[i].avali);
-
-		if(novo_hotel != NULL){
-			printf("Hotel Adicionado!\n");
-			printf("Nome: %s\nLocalidade: %s\nAvaliacao: %s\n", novo_hotel[i].nome, novo_hotel[i].local, novo_hotel[i].avali);
-		}
 	}
-	return (novo_hotel);
+	FILE *arq_hotel=fopen("hotel.txt","a");
+	if(arq_hotel == NULL){
+		printf("Erro ao abrir o arquivo\n");
+		return 0;
+	}
+	fprintf(arq_hotel,"Nome:%s\nLocalidade:%s\nAvaliacao:%s\n", novo_hotel->nome,novo_hotel->local,novo_hotel->avali);
+	printf("\nDados adicionados no arquivo!\n");
+	printf("\n");
+	fclose(arq_hotel);
+	return novo_hotel;
 }	
 
 Listah* lst_criah(void){
@@ -47,7 +51,7 @@ Listah *insereh(Listah *list){
 	Listah *novo = (Listah*)malloc(sizeof(Listah));
 	novo -> info = add;
 	novo -> next = list;
-	return novo;
+	return (novo);
 }
 
 int l_vaziah(Listah *list){
@@ -85,8 +89,8 @@ void listarh(Listah *list){
 
 	for(percorre=list; percorre!=NULL; percorre=percorre->next){
 
-	printf("|Hotel: %s | Localidade: %s | Avaliacao: %s |\n",percorre->info->nome, percorre->info->local, percorre->info->avali);
-    printf("\n");
+		printf("|Hotel: %s | Localidade: %s | Avaliacao: %s |\n",percorre->info->nome, percorre->info->local, percorre->info->avali);
+		printf("\n");
 	}
 }
 
@@ -103,8 +107,6 @@ void buscarh(Listah *list){
 		}
 	}
 }
-
-
 
 Listah *editarh(Listah *list){
 	Listah *p;
